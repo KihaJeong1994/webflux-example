@@ -6,8 +6,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.spring.webflux.webfluxexample.entity.User;
 import com.spring.webflux.webfluxexample.repository.UserRepository;
@@ -32,6 +34,10 @@ public class UserService {
 
     public Flux<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    public Mono<User> findById(String userId){
+        return userRepository.findById(userId);
     }
 
     public Mono<User> updateUser(String userId, User user){
