@@ -1,4 +1,4 @@
-package com.spring.webflux.user.entity;
+package com.spring.webflux.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

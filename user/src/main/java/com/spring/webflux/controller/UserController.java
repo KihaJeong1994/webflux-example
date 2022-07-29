@@ -1,4 +1,4 @@
-package com.spring.webflux.user.controller;
+package com.spring.webflux.controller;
 
 import java.time.Duration;
 import java.util.stream.Stream;
@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.webflux.user.entity.User;
-import com.spring.webflux.user.service.UserService;
+import com.spring.webflux.entity.User;
+import com.spring.webflux.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Flux;

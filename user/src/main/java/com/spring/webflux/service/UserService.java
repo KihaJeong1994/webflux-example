@@ -1,4 +1,4 @@
-package com.spring.webflux.user.service;
+package com.spring.webflux.service;
 
 import java.util.Collections;
 
@@ -9,8 +9,8 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.spring.webflux.user.entity.User;
-import com.spring.webflux.user.repository.UserRepository;
+import com.spring.webflux.entity.User;
+import com.spring.webflux.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

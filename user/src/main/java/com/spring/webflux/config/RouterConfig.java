@@ -1,4 +1,4 @@
-package com.spring.webflux.user.config;
+package com.spring.webflux.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -6,7 +6,8 @@ import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
-import com.spring.webflux.user.handler.UserHandler;
+import com.spring.webflux.handler.UserHandler;
+
 import static org.springframework.web.reactive.function.server.RequestPredicates.*;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 

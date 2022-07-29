@@ -1,4 +1,4 @@
-package com.spring.webflux.user.handler;
+package com.spring.webflux.handler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
-import com.spring.webflux.user.entity.User;
-import com.spring.webflux.user.service.UserService;
+import com.spring.webflux.entity.User;
+import com.spring.webflux.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
