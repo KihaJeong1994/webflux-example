@@ -26,3 +26,6 @@ logging:
       netty:
         http:
           client: DEBUG
+message:
+  topic:
+    name: user

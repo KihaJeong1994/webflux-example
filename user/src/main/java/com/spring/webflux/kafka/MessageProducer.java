@@ -1,5 +1,6 @@
 package com.spring.webflux.kafka;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
@@ -16,8 +17,11 @@ public class MessageProducer {
     
     private final KafkaTemplate<String, User> kafkaTemplate;
 
+    @Value(value = "${message.topic.name}")
+    private String topicName;
+
     public void sendMessage(User user){
-        ListenableFuture<SendResult<String, User>> future = kafkaTemplate.send("user",user);
+        ListenableFuture<SendResult<String, User>> future = kafkaTemplate.send(topicName,user);
 
         future.addCallback(new ListenableFutureCallback<SendResult<String, User>>() {
 
