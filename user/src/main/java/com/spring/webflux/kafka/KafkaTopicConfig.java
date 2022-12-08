@@ -1,4 +1,4 @@
-package com.spring.webflux.config;
+package com.spring.webflux.kafka;
 
 import java.util.HashMap;
 import java.util.Map;

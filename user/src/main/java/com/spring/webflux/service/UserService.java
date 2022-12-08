@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.webflux.entity.User;
+import com.spring.webflux.kafka.MessageProducer;
 import com.spring.webflux.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -26,12 +27,12 @@ public class UserService {
 
     private final ReactiveMongoTemplate reactiveMongoTemplate;
     private final UserRepository userRepository;
-    private final KafkaTemplate<String,User> kafkaTemplate;
+    private final MessageProducer producer;
 
     @Transactional
     public Mono<User> createUser(User user){
         return userRepository.save(user)
-        .doOnSuccess(u->kafkaTemplate.send("user",u));
+        .doOnSuccess(u->producer.sendMessage(u));
     }
 
     public Flux<User> getAllUsers() {
