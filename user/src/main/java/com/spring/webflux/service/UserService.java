@@ -6,6 +6,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,9 +26,12 @@ public class UserService {
 
     private final ReactiveMongoTemplate reactiveMongoTemplate;
     private final UserRepository userRepository;
+    private final KafkaTemplate<String,User> kafkaTemplate;
 
+    @Transactional
     public Mono<User> createUser(User user){
-        return userRepository.save(user);
+        return userRepository.save(user)
+        .doOnSuccess(u->kafkaTemplate.send("user",u));
     }
 
     public Flux<User> getAllUsers() {
